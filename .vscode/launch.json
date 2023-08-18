@@ -689,7 +689,9 @@
                 "-ndr.scalar_gate",
                 "0",
                 "-max_length_per_batch",
-                "none"
+                "none",
+                "-log",
+                "wandb",
             ]
         },
         {

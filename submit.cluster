@@ -1,0 +1,9 @@
+#!/bin/bash
+
+OUTFILE=submit.out  # default: lsf.oJOBID
+ERRORFILE=submit.e
+script=submit.py
+
+# Submit job
+sbatch --account=es_sachan --ntasks=1 --time=4:00:00 --mem-per-cpu=16G --tmp=64G -o $OUTFILE -e $ERRORFILE --wrap="python $script" # use this for training/computing the mdl using GPU
+# sbatch --account=es_sachan --ntasks=1 --time=4:00:00 --mem-per-cpu=16G --tmp=64G --gpus=rtx_3090:1 -o $OUTFILE -e $ERRORFILE --wrap="python $script" # use this for training/computing the mdl using GPU
