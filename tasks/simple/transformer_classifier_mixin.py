@@ -42,6 +42,7 @@ class TransformerClassifierMixin:
         default_init = einit or "pytorch"
 
         trafos = {
+            "standard": (TransformerEncoderWithLayer(), {}),
             "universal": (UniversalTransformerEncoderWithLayer(), {}),
             "relative": (TransformerEncoderWithLayer(RelativeTransformerEncoderLayer), rel_args),
             "relative_universal": (UniversalTransformerEncoderWithLayer(RelativeTransformerEncoderLayer), rel_args),
