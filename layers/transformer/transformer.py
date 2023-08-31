@@ -134,11 +134,11 @@ class TransformerDecoder(TransformerDecoderBase):
         return data
 
 
-def TransformerEncoderWithLayer(layer = TransformerEncoder):
+def TransformerEncoderWithLayer(layer = TransformerEncoderLayer):
     return lambda *args, **kwargs: TransformerEncoder(layer, *args, **kwargs)
 
 
-def TransformerDecoderWithLayer(layer = TransformerDecoder):
+def TransformerDecoderWithLayer(layer = TransformerDecoderLayer):
     return lambda *args, **kwargs: TransformerDecoder(layer, *args, **kwargs)
 
 
