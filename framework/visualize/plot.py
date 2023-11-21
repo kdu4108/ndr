@@ -558,12 +558,14 @@ class AsyncLogger(Logger):
         return f
 
     def wandb_flush_io(self):
+        # TODO: what's going on here?
         if not self.use_wandb:
             pass
 
         while not self.print_queue.empty():
             tag, text = self.print_queue.get()
-            wandb.run._redirect_cb("stdout", text)
+            print(f"NOT running wandb.run._redirect_cb('stdout', {text}) to avoid breaking.")
+            # wandb.run._redirect_cb("stdout", text)
             # wandb.run._redirect_cb("stderr" if tag==1 else "stdout", text)
 
     @staticmethod
